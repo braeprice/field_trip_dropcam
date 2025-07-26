@@ -6,9 +6,8 @@ email : {{cookiecutter.email}}
 project_name : {{cookiecutter.project_name}}
 instrument : "gopro_bruv"
 {% raw %}
-card_number : {{cookiecutter.card_number}}
-import_token : {{importtoken}}
-
+card_number : "{card_number}"
+import_token : "{importtoken}"
 {% endraw %}
 
 
