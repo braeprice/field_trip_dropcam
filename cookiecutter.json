@@ -7,5 +7,6 @@
     "start_date": "2024-04-03", 
     "end_date" : "2024-04-03",
     "country_code" : "AU",
-    "time_zone" : "Australia/Perth"
+    "time_zone" : "Australia/Perth",
+    "institution": "CSIRO"
 }

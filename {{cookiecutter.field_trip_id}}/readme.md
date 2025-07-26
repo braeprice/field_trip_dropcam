@@ -1,9 +1,11 @@
 ## field_trip_id : {{cookiecutter.field_trip_id}}
 ## project_name  : {{cookiecutter.project_name}}
+## Institution   : {{cookiecutter.institution}}
 ## start_date    : {{cookiecutter.start_date}}
 ## end_date      : {{cookiecutter.end_date}}
 ## custodian     : {{cookiecutter.custodian}}
 ## email         : {{cookiecutter.email}}
+## time_zone     : {{cookiecutter.time_zone}}
 
 
 
