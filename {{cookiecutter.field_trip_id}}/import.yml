@@ -5,6 +5,8 @@ custodian : {{cookiecutter.custodian}}
 email : {{cookiecutter.email}}
 project_name : {{cookiecutter.project_name}}
 instrument : "gopro_bruv"
+time_zone : "{{cookiecutter.time_zone}}"
+country_code : "{{cookiecutter.country_code}}"
 {% raw %}
 card_number : "{card_number}"
 import_token : "{importtoken}"
