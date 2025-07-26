@@ -1,0 +1,25 @@
+field_trip_id : {{cookiecutter.field_trip_id}}
+start_date : {{cookiecutter.start_date}}
+end_date : {{cookiecutter.end_date}}
+custodian : {{cookiecutter.custodian}}
+email : {{cookiecutter.email}}
+project_name : {{cookiecutter.project_name}}
+instrument : "gopro_bruv"
+{% raw %}
+field_data_path : "{CATALOG_DIR}/fielddata"
+raw_data_path : "{CATALOG_DIR}/fielddata/GoPro_BRUV/raw"
+metadata_path : "{CATALOG_DIR}/fielddata/GoPro_BRUV/metadata"
+import_file_path : "{CATALOG_DIR}/fielddata/GoPro_BRUV/import.yml"
+survey_area_path : "{CATALOG_DIR}/qgis/survey_areas"
+import_template : "{CATALOG_DIR}/fielddata/GoPro_BRUV/raw/{import_date}/{card_number}_{import_token}"
+station_path : "{metadata_path}/opdata.csv"
+station_latitude : "latitude_dd"
+station_longitude : "longitude_dd"
+station_depth : "depth_m"
+station_name :  "opcode"
+frame_number : "system_number"
+camera_metadata_path : "{metadata_path}/camerabars.csv"
+camera_calibration_path : "{CATALOG_DIR}/fielddata/GoPro_BRUV/calibration"
+
+output_path : "{CATALOG_DIR}/processed/deployments/{deployment_date}/{station_name}/UWA-{frame_number}_
+{% endraw %}

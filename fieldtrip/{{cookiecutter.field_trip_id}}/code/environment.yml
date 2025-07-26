@@ -1,0 +1,10 @@
+# environment.yml
+name: goprobruv
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - cookiecutter
+  - pandas
+  - doit
+  - opencv
