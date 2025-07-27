@@ -5,6 +5,7 @@ custodian : {{cookiecutter.custodian}}
 email : {{cookiecutter.email}}
 project_name : {{cookiecutter.project_name}}
 time_zone  : {{cookiecutter.time_zone}}
+institution  : {{cookiecutter.institution}}
 {% raw %}
 exiftool : exiftool
 exifname : .exif.json
@@ -42,4 +43,5 @@ log_file : "{report_path}/{field_trip_id}.log"
 
 #stage and processing configuration
 stage_path :  "{CATALOG_DIR}/02_stage"
+time_delta :  "00:05:00"
 {% endraw %}

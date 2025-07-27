@@ -10,6 +10,17 @@ country_code : "{{cookiecutter.country_code}}"
 {% raw %}
 card_number : "{card_number}"
 import_token : "{importtoken}"
+camera_serial_number : "{importtoken}"
+camera_name : "{importtoken}"
+time_stamp :  "{time_stamp}"
+series :  "{series}"
+station_name : "{station_name}"
+station_name : "{opcode}"
+latitude : "{latitude_dd}"
+longitude : "{longitude_dd}"
+depth : "{depth_m}"
+frame_name : "{frame_name}"
+institution : "{institution}"
 {% endraw %}
 
 
