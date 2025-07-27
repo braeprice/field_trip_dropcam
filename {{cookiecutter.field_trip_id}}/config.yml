@@ -23,7 +23,7 @@ depth_column : "depth_m"
 opcode_column :  "opcode"
 station_column : "station"
 frame_column : "system_number"
-frame_name : {{institution}}-SB{frame_number:02d}
+frame_name : "{{institution}}-SB{frame_number:02d}"
 
 # Memory card import configuration
 card_store : "{{CATALOG_DIR}}/01_fielddata/BRUV_memory_cards"
@@ -33,7 +33,7 @@ import_file_path : "{{CATALOG_DIR}}/import.yml"
 #deployment paths and output configuration
 deployment_path : "{{CATALOG_DIR}}/03_deployments"
 output_path : "{deployment_path}/{deployment_date}/{frame_number}_{left_camera}_{right_camera}/{opcode}"
-output_file_name : {opcode}_{frame_name}_{time_stamp}_{camera_name}.MP4
+output_file_name : "{opcode}_{frame_name}_{time_stamp}_{camera_name}.MP4"
 
 
 #report configuration
