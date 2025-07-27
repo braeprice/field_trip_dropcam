@@ -8,9 +8,9 @@ instrument : "gopro_bruv"
 time_zone : "{{cookiecutter.time_zone}}"
 country_code : "{{cookiecutter.country_code}}"
 {% raw %}
-card_number : "{card_number:03d}"
-import_token : "{importtoken}"
-import_registration_date : "{import_date}"
+card_number : "{{card_number:03d}}"
+import_token : "{{import_token}{}"
+import_registration_date : "{{import_date}}"
 {% endraw %}
 
 
