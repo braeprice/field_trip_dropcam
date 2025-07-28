@@ -1,0 +1,47 @@
+field_trip_id : LI2024-01
+start_date : 2024-04-03
+end_date : 2024-04-03
+custodian : Nick Mortimer
+email : nick.mortimer@csiro.au
+project_name : Ningaloo outlook
+time_zone  : Australia/Perth
+institution  : CSIRO
+
+exiftool : exiftool
+exifname : .exif.json
+instrument : "gopro_bruv"
+
+#metadata paths
+metadata_path : "{{CATALOG_DIR}}/00_metadata"
+camera_bars : "{{metadata_path}}/camerabars.csv"
+station_path : "{{metadata_path}}/opdata.csv"
+
+#opdata variables mapping
+latitude_column : "latitude_dd"
+longitude_column : "longitude_dd"
+depth_column : "depth_m"
+opcode_column :  "opcode"
+station_column : "station"
+frame_column : "system_number"
+frame_name : "{{institution}}-SB{frame_number:02d}"
+
+# Memory card import configuration
+card_store : "{{CATALOG_DIR}}/01_fielddata/BRUV_memory_cards"
+import_path_template : "{card_store}/{import_date}/{card_number}_{import_token}"
+import_template_path : "{{CATALOG_DIR}}/import.yml"
+
+#deployment paths and output configuration
+deployment_path : "{{CATALOG_DIR}}/03_deployments"
+output_path : "{deployment_path}/{deployment_date}/{frame_number}_{left_camera}_{right_camera}/{opcode}"
+output_file_name : "{opcode}_{frame_name}_{time_stamp}_{camera_name}.MP4"
+
+
+#report configuration
+report_path : "{{CATALOG_DIR}}/05_reports"
+videolist : "{{report_path}}/videolist.csv"
+log_file : "{{report_path}}/{field_trip_id}.log"
+
+#stage and processing configuration
+stage_path :  "{{CATALOG_DIR}}/02_stage"
+time_delta :  "00:05:00"
+
