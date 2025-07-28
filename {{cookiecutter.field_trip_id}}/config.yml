@@ -32,13 +32,14 @@ import_template_path : "{{CATALOG_DIR}}/import.yml"
 
 #deployment paths and output configuration
 deployment_path : "{{CATALOG_DIR}}/03_deployments"
-output_path : "{deployment_path}/{deployment_date}/{frame_number}_{left_camera}_{right_camera}/{opcode}"
+output_path : "{{deployment_path}}/{deployment_date}/{frame_number}_{left_camera}_{right_camera}/{opcode}"
 output_file_name : "{opcode}_{frame_name}_{time_stamp}_{camera_name}.MP4"
 
 
 #report configuration
 report_path : "{{CATALOG_DIR}}/05_reports"
 videolist : "{{report_path}}/videolist.csv"
+deployments : "{{report_path}}/deployments.csv"
 log_file : "{{report_path}}/{field_trip_id}.log"
 
 #stage and processing configuration
