@@ -31,7 +31,7 @@ if "windows" in system:
     os.remove(zip_path)
 
     # Example: Download exiftool
-    exiftool_url = "https://exiftool.org/exiftool-13.01.zip"
+    exiftool_url = "https://sourceforge.net/projects/exiftool/files/exiftool-13.33_64.zip/download"
     zip_path = os.path.join(BIN_DIR, "exiftool.zip")
     download(exiftool_url, zip_path)
     with zipfile.ZipFile(zip_path, 'r') as zf:
