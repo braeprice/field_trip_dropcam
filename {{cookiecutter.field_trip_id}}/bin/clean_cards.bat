@@ -2,7 +2,7 @@
 SET SCRIPT_DIR=%~dp0
 CD /D "%SCRIPT_DIR%.."
 
-echo Do you want to clean the cards first? (Y/N)
+echo Do you want to clean the cards? (Y/N)
 set /p ANSWER="> "
 
 if /I "%ANSWER%"=="Y" (
