@@ -48,5 +48,4 @@ if errorlevel 1 (
     exit /b 1
 )
 
-bruv concat_yml
-pause
+bruv 
