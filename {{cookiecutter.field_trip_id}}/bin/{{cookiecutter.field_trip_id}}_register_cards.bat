@@ -3,7 +3,7 @@ SET SCRIPT_DIR=%~dp0
 CD /D "%SCRIPT_DIR%.."
 
 REM Initialize conda for batch files
-call "%LOCALAPPDATA%\anaconda3\Scripts\activate.bat" || call "%LOCALAPPDATA%\miniconda3\Scripts\activate.bat" || call "%USERPROFILE%\anaconda3\Scripts\activate.bat" || call "%USERPROFILE%\miniconda3\Scripts\activate.bat" || (
+call "%LOCALAPPDATA%\miniconda3\Scripts\activate.bat" || "%LOCALAPPDATA%\anaconda3\Scripts\activate.bat" || "%LOCALAPPDATA%\miniconda3\Scripts\activate.bat" || call "%LOCALAPPDATA%\miniconda3\Scripts\activate.bat" || call "%USERPROFILE%\anaconda3\Scripts\activate.bat" || call "%USERPROFILE%\miniconda3\Scripts\activate.bat" || (
     echo ERROR: Could not find Anaconda/Miniconda installation
     echo Please ensure Anaconda or Miniconda is installed
     pause
