@@ -1,0 +1,13 @@
+# environment.yml
+name: cardmanager
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - cookiecutter
+  - pandas
+  - pydoit
+  - opencv
+  - pip
+  - pip:
+    - git+https://github.com/NickMortimer/sdcard.git
