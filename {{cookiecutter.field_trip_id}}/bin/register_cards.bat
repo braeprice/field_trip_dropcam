@@ -18,15 +18,7 @@ if errorlevel 1 (
     pause
     exit /b 1
 )
-
-echo Do you want to clean the cards? (Y/N)
-set /p ANSWER="> "
-
-if /I "%ANSWER%"=="Y" (
-    echo Cleaning cards...
-    sdcard import --move
-) else (
-    echo Not Cleaning Cards...
-)
-
+SET SCRIPT_DIR=%~dp0
+CD /D "%SCRIPT_DIR%.."
+sdcard register
 pause

@@ -5,18 +5,17 @@ CD /D "%SCRIPT_DIR%.."
 echo Setting up conda environment from environment.yml...
 echo.
 
-REM Check if conda is available
-conda --version >nul 2>&1
-if errorlevel 1 (
-    echo ERROR: Conda is not installed or not in PATH
-    echo Please install Anaconda or Miniconda first
+REM Initialize conda for batch files
+call "%USERPROFILE%\anaconda3\Scripts\activate.bat" || call "%USERPROFILE%\miniconda3\Scripts\activate.bat" || (
+    echo ERROR: Could not find Anaconda/Miniconda installation
+    echo Please ensure Anaconda or Miniconda is installed
     pause
     exit /b 1
 )
 
 REM Create environment from yml file
 echo Creating conda environment 'cardmanager'...
-conda env create -f environment.yml
+call conda env create -f environment.yml
 
 if errorlevel 1 (
     echo ERROR: Failed to create environment
