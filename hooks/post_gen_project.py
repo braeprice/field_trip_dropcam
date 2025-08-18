@@ -83,8 +83,8 @@ if "windows" in system:
         batch_files = [
             ("install.bat", "Install Environment", "shell32.dll,21"),  # Setup/install icon
             (f"{field_trip_id}_clean_cards.bat", f"{field_trip_id} - Clean Memory Cards", "shell32.dll,31"),  # Recycle bin icon
-            (f"{field_trip_id}_import_cards.bat", f"{field_trip_id} - Import Memory Cards", "shell32.dll,132"),  # Import/download icon
-            (f"{field_trip_id}_register_cards.bat", f"{field_trip_id} - Register Memory Cards", "shell32.dll,147")  # Document/register icon
+            (f"{field_trip_id}_import_cards.bat", f"{field_trip_id} - Import Memory Cards", "shell32.dll,308"),  # Import/download icon
+            (f"{field_trip_id}_register_cards.bat", f"{field_trip_id} - Register Memory Cards", "shell32.dll,21")  # Document/register icon
         ]
         
         for bat_file, description, icon in batch_files:
