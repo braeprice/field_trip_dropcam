@@ -64,4 +64,38 @@ if "windows" in system:
     new_exiftool_exe = os.path.join(BIN_DIR, "exiftool.exe")
     if os.path.exists(exiftool_exe):
         shutil.copy2(exiftool_exe, new_exiftool_exe)
+    
+    # Create desktop shortcuts for batch files
+    create_shortcuts_choice = input("Do you want to create desktop shortcuts for the batch files? (yes/no) [yes]: ").strip().lower()
+    if create_shortcuts_choice == '' or create_shortcuts_choice == 'yes' or create_shortcuts_choice == 'y':
+        import winshell
+        from win32com.client import Dispatch
+        
+        desktop = winshell.desktop()
+        field_trip_id = "{{ cookiecutter.field_trip_id }}"
+        
+        # List of batch files to create shortcuts for (with templated names)
+        batch_files = [
+            ("install.bat", "Install Environment", "shell32.dll,21"),  # Setup/install icon
+            (f"{field_trip_id}_clean_cards.bat", f"{field_trip_id} - Clean Memory Cards", "shell32.dll,31"),  # Recycle bin icon
+            (f"{field_trip_id}_import_cards.bat", f"{field_trip_id} - Import Memory Cards", "shell32.dll,132"),  # Import/download icon
+            (f"{field_trip_id}_register_cards.bat", f"{field_trip_id} - Register Memory Cards", "shell32.dll,147")  # Document/register icon
+        ]
+        
+        for bat_file, description, icon in batch_files:
+            bat_path = os.path.join(BIN_DIR, bat_file)
+            if os.path.exists(bat_path):
+                shell = Dispatch('WScript.Shell')
+                shortcut_path = os.path.join(desktop, f"{description}.lnk")
+                shortcut = shell.CreateShortCut(shortcut_path)
+                shortcut.Targetpath = bat_path
+                shortcut.WorkingDirectory = os.path.dirname(bat_path)
+                shortcut.Description = description
+                shortcut.IconLocation = icon  # Set the icon
+                shortcut.save()
+                print(f"Created desktop shortcut: {description}")
+            else:
+                print(f"Warning: {bat_file} not found, skipping shortcut creation")
+    else:
+        print("Skipped creating desktop shortcuts")
 
