@@ -29,8 +29,8 @@ if "windows" in system:
     import zipfile
 
     # ask the user if they want to download rclone yes or no
-    rclone_choice = input("Do you want to download rclone? (yes/no): ").strip().lower()
-    if rclone_choice== 'yes':
+    rclone_choice = input("Do you want to download rclone? (yes/no) [yes]: ").strip().lower()
+    if rclone_choice == '' or rclone_choice == 'yes' or rclone_choice == 'y':
             
         rclone_url = "https://downloads.rclone.org/v1.67.0/rclone-v1.67.0-windows-amd64.zip"
         zip_path = os.path.join(BIN_DIR, "rclone.zip")
@@ -44,9 +44,10 @@ if "windows" in system:
             shutil.copy2(rclone_path, new_rclone_path)
     else:
         print(f"Please download rclone manually from https://rclone.org/downloads/ and place it in the bin directory. {BIN_DIR}")
+
     # ask the user if they want to download exiftool yes or no
-    exiftool_choice = input("Do you want to download exiftool? (yes/no): ").strip().lower()
-    if exiftool_choice == 'no':
+    exiftool_choice = input("Do you want to download exiftool? (yes/no) [yes]: ").strip().lower()
+    if exiftool_choice == 'no' or exiftool_choice == 'n':
         print(f"Please download exiftool manually from https://exiftool.org/ and place it in the bin directory. {BIN_DIR}")
         print("And remember to rename the executable to 'exiftool.exe' in the bin directory.")
         exit(0) 
@@ -64,4 +65,3 @@ if "windows" in system:
     if os.path.exists(exiftool_exe):
         shutil.copy2(exiftool_exe, new_exiftool_exe)
 
-          
