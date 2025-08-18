@@ -74,6 +74,11 @@ if "windows" in system:
         desktop = winshell.desktop()
         field_trip_id = "{{ cookiecutter.field_trip_id }}"
         
+        # Create a folder on the desktop for the shortcuts
+        folder_name = f"{field_trip_id} - Field Trip Tools"
+        desktop_folder = os.path.join(desktop, folder_name)
+        os.makedirs(desktop_folder, exist_ok=True)
+        
         # List of batch files to create shortcuts for (with templated names)
         batch_files = [
             ("install.bat", "Install Environment", "shell32.dll,21"),  # Setup/install icon
@@ -86,7 +91,7 @@ if "windows" in system:
             bat_path = os.path.join(BIN_DIR, bat_file)
             if os.path.exists(bat_path):
                 shell = Dispatch('WScript.Shell')
-                shortcut_path = os.path.join(desktop, f"{description}.lnk")
+                shortcut_path = os.path.join(desktop_folder, f"{description}.lnk")
                 shortcut = shell.CreateShortCut(shortcut_path)
                 shortcut.Targetpath = bat_path
                 shortcut.WorkingDirectory = os.path.dirname(bat_path)
@@ -96,6 +101,8 @@ if "windows" in system:
                 print(f"Created desktop shortcut: {description}")
             else:
                 print(f"Warning: {bat_file} not found, skipping shortcut creation")
+        
+        print(f"Created desktop folder: {folder_name}")
     else:
         print("Skipped creating desktop shortcuts")
 
