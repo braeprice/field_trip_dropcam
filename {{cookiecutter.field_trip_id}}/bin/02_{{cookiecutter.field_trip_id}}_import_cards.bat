@@ -23,6 +23,15 @@ if exist "%USERPROFILE%\miniconda3\Scripts\activate.bat" (
     if not errorlevel 1 goto conda_activated
 )
 
+if exist "%PROGRAMDATA%\anaconda3\Scripts\activate.bat" (
+    call "%PROGRAMDATA%\anaconda3\Scripts\activate.bat" base
+    if not errorlevel 1 goto conda_activated
+)
+
+if exist "%PROGRAMDATA%\miniconda3\Scripts\activate.bat" (
+    call "%PROGRAMDATA%\miniconda3\Scripts\activate.bat" base
+    if not errorlevel 1 goto conda_activated
+)
 echo ERROR: Could not find Anaconda/Miniconda installation
 echo Please ensure Anaconda or Miniconda is installed
 pause
