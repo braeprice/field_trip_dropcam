@@ -61,9 +61,17 @@ if "windows" in system:
     
     # Rename the exiftool executable and move it to the bin directory 
     exiftool_exe = os.path.join(BIN_DIR, "exiftool-13.33_64","exiftool(-k).exe")
+    exiftool_support = os.path.join(BIN_DIR, "exiftool-13.33_64","exiftool_files")
+    #move the dll directory to the bin directory
     new_exiftool_exe = os.path.join(BIN_DIR, "exiftool.exe")
     if os.path.exists(exiftool_exe):
         shutil.copy2(exiftool_exe, new_exiftool_exe)
+    #move exiftool_support to the bin directory
+    if os.path.exists(exiftool_support):
+        new_exiftool_support = os.path.join(BIN_DIR, "exiftool_files")
+        if os.path.exists(new_exiftool_support):
+            shutil.rmtree(new_exiftool_support)
+        shutil.move(exiftool_support, new_exiftool_support)
     
     # Create desktop shortcuts for batch files
     create_shortcuts_choice = input("Do you want to create desktop shortcuts for the batch files? (yes/no) [yes]: ").strip().lower()
