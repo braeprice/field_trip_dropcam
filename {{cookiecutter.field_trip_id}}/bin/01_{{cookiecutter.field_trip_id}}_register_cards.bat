@@ -49,5 +49,5 @@ if errorlevel 1 (
     exit /b 1
 )
 
-sdcard register
+sdcard register --all
 pause

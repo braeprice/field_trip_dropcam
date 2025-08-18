@@ -82,11 +82,11 @@ if "windows" in system:
         # List of batch files to create shortcuts for (with templated names)
         batch_files = [
             ("install.bat", "Install Environment", "shell32.dll,21"),  # Setup/install icon
-            (f"99_{field_trip_id}_clean_cards.bat", f"{field_trip_id} - Clean Memory Cards", "shell32.dll,31"),  # Recycle bin icon
-            (f"02_{field_trip_id}_import_cards.bat", f"{field_trip_id} - Import Memory Cards", "shell32.dll,308"),  # Import/download icon
-            (f"01_{field_trip_id}_register_cards.bat", f"{field_trip_id} - Register Memory Cards", "shell32.dll,21"),  # Document/register icon
-            (f"03_{field_trip_id}_process_exif.bat", f"{field_trip_id} - Process EXIF Data", "shell32.dll,16776"),  # Document/register icon
-            (f"04_{field_trip_id}_process_all.bat", f"{field_trip_id} - Process All Data", "shell32.dll,51380")  # Document/register icon
+            (f"99_{field_trip_id}_clean_cards.bat", f"{field_trip_id} - 99 Clean Memory Cards", "shell32.dll,31"),  # Recycle bin icon
+            (f"02_{field_trip_id}_import_cards.bat", f"{field_trip_id} - 02 Import Memory Cards", "shell32.dll,308"),  # Import/download icon
+            (f"01_{field_trip_id}_register_cards.bat", f"{field_trip_id} - 01 Register Memory Cards", "shell32.dll,21"),  # Document/register icon
+            (f"03_{field_trip_id}_process_exif.bat", f"{field_trip_id} - 03 Process EXIF Data", "shell32.dll,16776"),  # Document/register icon
+            (f"04_{field_trip_id}_process_all.bat", f"{field_trip_id} - 04 Process All Data", "shell32.dll,51380")  # Document/register icon
         ]
         
         for bat_file, description, icon in batch_files:
