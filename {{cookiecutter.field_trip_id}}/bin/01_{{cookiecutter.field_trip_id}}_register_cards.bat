@@ -23,12 +23,23 @@ if exist "%USERPROFILE%\miniconda3\Scripts\activate.bat" (
     if not errorlevel 1 goto conda_activated
 )
 
+if exist "%PROGRAMDATA%\anaconda3\Scripts\activate.bat" (
+    call "%PROGRAMDATA%\anaconda3\Scripts\activate.bat" base
+    if not errorlevel 1 goto conda_activated
+)
+
+if exist "%PROGRAMDATA%\miniconda3\Scripts\activate.bat" (
+    call "%PROGRAMDATA%\miniconda3\Scripts\activate.bat" base
+    if not errorlevel 1 goto conda_activated
+)
+
 echo ERROR: Could not find Anaconda/Miniconda installation
 echo Please ensure Anaconda or Miniconda is installed
 pause
 exit /b 1
 
 :conda_activated
+
 REM Activate the cardmanager environment
 call conda activate cardmanager
 if errorlevel 1 (
@@ -38,14 +49,5 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo Do you want to clean the cards? (Y/N)
-set /p ANSWER="> "
-
-if /I "%ANSWER%"=="Y" (
-    echo Cleaning cards...
-    sdcard import --move
-) else (
-    echo Not Cleaning Cards...
-)
-
+sdcard register
 pause
