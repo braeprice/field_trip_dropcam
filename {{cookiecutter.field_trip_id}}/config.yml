@@ -27,6 +27,7 @@ frame_name : "{{institution}}-SB{frame_number:02d}"
 
 # Memory card import configuration
 card_store : "{{CATALOG_DIR}}/01_fielddata/BRUV_memory_cards"
+gps_folder : "{{CATALOG_DIR}}/01_fielddata/GPS_tracks"
 import_path_template : "{card_store}/{import_date}/{card_number}_{import_token}"
 import_template_path : "{{CATALOG_DIR}}/import.yml"
 
