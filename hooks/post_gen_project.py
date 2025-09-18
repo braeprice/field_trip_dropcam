@@ -115,4 +115,53 @@ if "windows" in system:
         print(f"Created desktop folder: {folder_name}")
     else:
         print("Skipped creating desktop shortcuts")
+    
+    # Download ffmpeg (latest static build for Windows)
+    ffmpeg_choice = input("Do you want to download ffmpeg? (yes/no) [yes]: ").strip().lower()
+    if ffmpeg_choice == '' or ffmpeg_choice == 'yes' or ffmpeg_choice == 'y':
+        ffmpeg_url = "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip"
+        zip_path = os.path.join(BIN_DIR, "ffmpeg.zip")
+        print(f"Downloading {ffmpeg_url} ...")
+        download(ffmpeg_url, zip_path)
+        with zipfile.ZipFile(zip_path, 'r') as zf:
+            zf.extractall(BIN_DIR)
+        os.remove(zip_path)
+        # Find ffmpeg.exe and copy to BIN_DIR
+        for root, dirs, files in os.walk(BIN_DIR):
+            if "ffmpeg.exe" in files:
+                ffmpeg_exe = os.path.join(root, "ffmpeg.exe")
+                shutil.copy2(ffmpeg_exe, os.path.join(BIN_DIR, "ffmpeg.exe"))
+                print("ffmpeg.exe copied to bin directory.")
+                break
+            if "ffprobe.exe" in files:
+                ffprobe_exe = os.path.join(root, "ffprobe.exe")
+                shutil.copy2(ffprobe_exe, os.path.join(BIN_DIR, "ffprobe.exe"))
+                print("ffprobe.exe copied to bin directory.")
+    else:
+        print(f"Please download ffmpeg manually from https://ffmpeg.org/download.html and place ffmpeg.exe in the bin directory. {BIN_DIR}")
+
+    # Download cwrsync
+    cwrsync_choice = input("Do you want to download cwrsync? (yes/no) [yes]: ").strip().lower()
+    if cwrsync_choice == '' or cwrsync_choice == 'yes' or cwrsync_choice == 'y':
+        cwrsync_url = "https://github.com/cwRsync/cwRsync/releases/download/v6.4.5/cwrsync_6.4.5_x64_free.zip"
+        zip_path = os.path.join(BIN_DIR, "cwrsync.zip")
+        print(f"Downloading {cwrsync_url} ...")
+        download(cwrsync_url, zip_path)
+        with zipfile.ZipFile(zip_path, 'r') as zf:
+            zf.extractall(BIN_DIR)
+        os.remove(zip_path)
+        # Find rsync.exe and copy to BIN_DIR
+        for root, dirs, files in os.walk(BIN_DIR):
+            if "rsync.exe" in files:
+                rsync_exe = os.path.join(root, "rsync.exe")
+                shutil.copy2(rsync_exe, os.path.join(BIN_DIR, "rsync.exe"))
+                print("rsync.exe copied to bin directory.")
+            for file in files:
+                if file.lower().endswith('.dll'):
+                    dll_src = os.path.join(root, file)
+                    dll_dst = os.path.join(BIN_DIR, file)
+                    if not os.path.exists(dll_dst):
+                        shutil.copy2(dll_src, dll_dst)
+    else:
+        print(f"Please download cwrsync manually from https://github.com/cwRsync/cwRsync/releases and place rsync.exe in the bin directory. {BIN_DIR}")
 
